@@ -1,0 +1,16 @@
+services:
+  mysql:
+    image: mysql:8.0.25
+    container_name: mysql_dev
+    
+    environment:
+      MYSQL_DATABASE: 'TicketMate'
+      MYSQL_USER: 'ticketmate_dev_user'
+      MYSQL_PASSWORD: 'ticketmate_dev_pw'
+      MYSQL_ROOT_PASSWORD: 'ticketmate_root'
+    ports:
+      - '3309:3306'
+    volumes:
+      - ./mysql/data:/docker-entrypoint-initdb.d  
+    restart: always
+    
