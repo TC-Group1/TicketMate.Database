@@ -1,0 +1,2 @@
+ALTER TABLE Roles
+ADD UNIQUE (Name);
