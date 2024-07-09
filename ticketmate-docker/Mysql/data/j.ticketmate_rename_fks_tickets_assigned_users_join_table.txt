@@ -1,0 +1,13 @@
+ALTER TABLE `TicketMate`.`TicketsAssignedUsers`
+DROP FOREIGN KEY `FK_Ticket_AssignedUsers`,
+DROP FOREIGN KEY `FK_Users_AssignedTickets`,
+ADD CONSTRAINT `FK_Tickets_TicketsAssignedUsers`
+  FOREIGN KEY (`TicketId`)
+  REFERENCES `TicketMate`.`Tickets` (`Id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `FK_Users_TicketsAssignedUsers`
+  FOREIGN KEY (`UserId`)
+  REFERENCES `TicketMate`.`Users` (`Id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
